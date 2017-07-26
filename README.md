@@ -1,19 +1,14 @@
 nginx-chef Cookbook
 =====================
-TODO: Enter the cookbook description here.
-
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+Some of my old code, which is completely custom and good for fresh installation and upgrades alike. Has custom installations for LDAP, OpenSSL and SPDY modules too in it. So just tweek the versions and run to your likings.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+Works on CentOS/Amazon Linux
 
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write your change
