@@ -1,0 +1,16 @@
+DEPENDENCIES
+  build-essential
+  nginx
+    path: .
+    metadata: true
+  ohai
+  yum
+  yum-epel
+
+GRAPH
+  build-essential (2.2.3)
+  nginx (0.6.10)
+  ohai (2.0.1)
+  yum (3.6.1)
+  yum-epel (0.6.2)
+    yum (~> 3.2)

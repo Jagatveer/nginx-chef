@@ -1,0 +1,36 @@
+# Generated and maintained by Chef
+
+server {
+    limit_conn     myzone    10;
+    listen         <%= node['nginx']['port'] %> default;
+    server_name    _;
+
+    location / {
+      root     <%= node['nginx']['doc_root'] %>;
+      index    index.html index.php;
+      proxy_set_header HOST $host;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location /nginx_status {
+      stub_status on;
+      access_log     off;
+      allow 127.0.0.1;
+      deny all;
+    }
+
+    location /status {
+      if ($http_x_forwarded_for) {
+        return 403;
+      }
+      access_log     off;
+      allow 127.0.0.1;
+      deny all;
+
+      include fastcgi_params;
+      fastcgi_pass unix:/var/lib/phpfpm.sock;
+      fastcgi_param SCRIPT_FILENAME $fastcgi_script_name;
+    }
+}
